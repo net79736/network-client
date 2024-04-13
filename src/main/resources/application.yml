@@ -6,6 +6,16 @@ spring:
     url: jdbc:mysql://211.193.54.143:15133/focs
     username: focs
     password: Ejskdms!23
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    check-template-location: true
+    mode: HTML
+  web:
+    resources:
+      static-locations: classpath:/static/
 server:
-  port: 9011
+  port: 6644
+  servlet:
+    context-path: /
 
