@@ -15,7 +15,7 @@ spring:
     resources:
       static-locations: classpath:/static/
 server:
-  port: 6644
+  port: 8080
   servlet:
     context-path: /
 

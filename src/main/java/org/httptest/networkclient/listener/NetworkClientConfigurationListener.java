@@ -64,7 +64,8 @@ public class NetworkClientConfigurationListener implements ServletContextListene
                     Properties properties = new Properties();
                     properties.load((InputStream)fileInputStream);
                     Env.NETWORK_CLIENT_DOMAIN_CONTEXT = (String)StringUtils.defaultIfBlank(properties.getProperty("NETWORK_CLIENT_DOMAIN_CONTEXT"), "");
-                    Env.NETWORK_URL = (String)StringUtils.defaultIfBlank(properties.getProperty("NETWORK_URL"), "");
+                    Env.NAME = (String)StringUtils.defaultIfBlank(properties.getProperty("NETWORK_URL"), "");
+                    Env.MANAUL_LOGIN_URL = (String)StringUtils.defaultIfBlank(properties.getProperty("MANAUL_LOGIN_URL"), "");
                     Env.PROXY_SERVER_URL = (String)StringUtils.defaultIfBlank(properties.getProperty("PROXY_SERVER_URL"), "");
 
                     if (log.isDebugEnabled()) {

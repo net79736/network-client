@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+</head>
+<style>
+    .antd-container {
+        font-family: arial;
+        margin: 250px 800px;
+        width: 1028px;
+        height: 200px;
+    }
+
+    .code-number {
+        color: #228be6;
+        font-size: 72px;
+        font-weight: 600;
+        line-height: 72px;
+        margin-bottom: 24px;
+    }
+</style>
+<body>
+<div id="app" class="antd-container">
+    <div className="exception">
+        <div className="imgBlock">
+            <div className="imgEle">
+                <img src="/static/img/error_400_network.svg" />
+            </div>
+        </div>
+        <div className="content">
+            <h1 class="code-number" th:text="${resultCode}"></h1>
+            <div class="desc" style="color: #868e96;" th:text="'Result Code: ' + ${resultCode}"></div>
+            <p class="result-message" style="color: #868e96;" th:text="'Result Message: ' + ${resultMessage}"></p>
+            <p clss="result-message">3초 후에 세션을 만료합니다.</p>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    let resultCode = [[${resultCode}]];
+    let resultMessage = [[${resultMessage}]];
+
+    if (resultCode !== "000000") {
+        // alert("resultCode : " + resultCode + "\nresultMessage : " + resultMessage)
+        setTimeout(logout, 3000); // 로그아웃 서블릿 호출
+    }
+
+    function logout() {
+        console.log("logout FUNCTION START")
+        const Http = new XMLHttpRequest();
+        const url = '/network-client/logout'; // 로그아웃 엔드포인트 URL 수정 필요
+
+        Http.open('POST', url);
+        Http.send();
+        Http.onreadystatechange = (e) => {
+            console.log(Http.responseText);
+            replaceEntireDocument(Http.responseText);
+        };
+    }
+
+    function replaceEntireDocument(responseHtml) {
+        document.open(); // 현재 문서를 엽니다
+        document.write(responseHtml); // 새로운 HTML을 쓰기 시작합니다
+        document.close(); // 문서 작성을 종료합니다
+    }
+</script>
+</body>
+</html>

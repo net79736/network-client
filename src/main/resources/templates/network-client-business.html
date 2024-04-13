@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+</head>
+<body>
+    <form name="sendForm" method="post">
+        <input type="hidden" name="name" th:value="${name}" />
+    </form>
+
+    <script th:inline="javascript">
+        let sendUrl = [[${NETWORK_CLIENT_PAGE}]];
+        let sendForm = document.sendForm;
+
+        console.log(`sendUrl : ${sendUrl}`);
+
+        sendForm.action = sendUrl;
+        sendForm.submit();
+    </script>
+</body>
+</html>

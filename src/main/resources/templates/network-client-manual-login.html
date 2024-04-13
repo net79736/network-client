@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+</head>
+<style>
+    .antd-container {
+        font-family: arial;
+        margin: 250px 800px;
+        width: 1028px;
+        height: 200px;
+    }
+
+    .code-number {
+        color: #228be6;
+        font-size: 72px;
+        font-weight: 600;
+        line-height: 72px;
+        margin-bottom: 24px;
+    }
+</style>
+<body>
+<div id="app" class="antd-container">
+    <div className="exception">
+        <div className="imgBlock">
+            <div className="imgEle">
+                <img src="/static/img/error_401_authroity.svg" />
+            </div>
+        </div>
+        <div className="content">
+            <h1 class="code-number" th:text="${resultCode}"></h1>
+            <div class="desc" style="color: #868e96;" th:text="'Result Code: ' + ${resultCode}"></div>
+            <p class="result-message" style="color: #868e96;" th:text="'Result Message: ' + ${resultMessage}"></p>
+            <div className="actions">
+                <Button onclick="handleManualLoginPage()">수동 로그인</Button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script th:inline="javascript">
+    let MANAUL_LOGIN_URL = [[${MANAUL_LOGIN_URL}]];
+    // console.log(MANAUL_LOGIN_URL);
+
+    function handleManualLoginPage() {
+        location.href = `${MANAUL_LOGIN_URL}`;
+    }
+</script>
+</body>
+</html>
