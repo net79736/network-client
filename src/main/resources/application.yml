@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: network-client
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://211.193.54.143:15133/focs
+    username: focs
+    password: Ejskdms!23
+server:
+  port: 9011
+
