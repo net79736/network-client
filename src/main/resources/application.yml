@@ -11,6 +11,7 @@ spring:
     suffix: .html
     check-template-location: true
     mode: HTML
+    cache: false
   web:
     resources:
       # http://localhost:8080/ase256/AESIv 이렇게 URI 로 접근 시
