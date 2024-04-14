@@ -46,6 +46,7 @@
 
     <logger name="org.springframework" level="OFF"/>
     <!--logback config 패키지는 INFO 레벨 이상만 출력하겠다.-->
+    <logger name="org.httptest.networkclient.controller" level="DEBUG"/>
     <logger name="org.httptest.networkclient.config" level="INFO"/>
     <logger name="org.httptest.networkclient.test" level="WARN"/>
     <!--org.httptest.networkclient 하위 패키지는 ERROR 레벨 이상만 출력하겠다.-->

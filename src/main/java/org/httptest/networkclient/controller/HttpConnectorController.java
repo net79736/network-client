@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.httptest.networkclient.config.http.HttpConnector;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class HttpConnectorController {
     public ResponseEntity returnStringRequest() {
         log.info("HttpConnectorController returnStringRequest START");
         try {
-            httpConnector.sendHttpConnectorV2("제주도 여행권", "http://localhost:8080/network-client/return-string-response");
+            httpConnector.sendHttpConnectorV2("제주도 여행권", "http://localhost:8080/network-client/return-string-response", HttpMethod.GET);
         } catch (Exception e) {
             log.error("[ERROR] HttpConnectorController returnStringRequest e : ", e.getMessage());
         }

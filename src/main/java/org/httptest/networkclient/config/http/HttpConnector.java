@@ -24,7 +24,7 @@ public class HttpConnector {
      * @return 검증 응답 문자열
      * @throws Exception
      */
-    public ResponseEntity<String> sendHttpConnectorV2(String rawTicket, String proxyVerifyUrl) throws Exception {
+    public ResponseEntity<String> sendHttpConnectorV2(String rawTicket, String proxyVerifyUrl, HttpMethod method) throws Exception {
         String url = String.format("%s?rawTicket=%s", proxyVerifyUrl, rawTicket);
 
         log.info("sendHttpConnectorV2 START");
@@ -36,7 +36,7 @@ public class HttpConnector {
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> requestEntity = new HttpEntity<>(headers);
-        ResponseEntity<String> responseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, String.class);
+        ResponseEntity<String> responseEntity = restTemplate.exchange(url, method, requestEntity, String.class);
 
         return responseEntity;
     }
