@@ -60,7 +60,7 @@ public class NetworkClientController {
     }
 
     // (Step1)
-    @RequestMapping(value = {"/", "/network-client/business"} , method = RequestMethod.GET)
+    @RequestMapping(value = {"/network-client/business"} , method = RequestMethod.GET)
     public String businessNetworkClientServer(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
         log.info("businessNetworkClientServer Env.NETWORK_CLIENT_DOMAIN_CONTEXT : {}", Env.NETWORK_CLIENT_DOMAIN_CONTEXT);
         log.info("businessNetworkClientServer Env.MANAUL_LOGIN_URL : {}", Env.MANAUL_LOGIN_URL);

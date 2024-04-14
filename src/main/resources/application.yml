@@ -13,6 +13,8 @@ spring:
     mode: HTML
   web:
     resources:
+      # http://localhost:8080/ase256/AESIv 이렇게 URI 로 접근 시
+      # /Users/ijong-ug/IdeaProjects/network-client/src/main/resources/static/aes256/AESIv 에 접근 가능함
       static-locations: classpath:/static/
 server:
   port: 8080
