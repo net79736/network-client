@@ -18,7 +18,7 @@ public class NetworkClientConfig implements ServletContextInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        log.trace("NetworkClientConfig.onStartup");
+        log.debug("NetworkClientConfig.onStartup");
 
 //        String HOME_PATH = System.getProperty("lee.home");
         final String HOME_PATH = "/Users/ijong-ug/IdeaProjects/network-client/src/main/resources/static";

@@ -184,9 +184,9 @@ public class FileUtility {
     public static void writeFile(String writeFileAbsPath, String characterSet, String content) {
         try {
             File f = new File(writeFileAbsPath);
-            storeDirectory(f.getParentFile().toString());
+            storeDirectory(f.getParentFile().toString()); // 폴더 생성
 
-            deleteFile(writeFileAbsPath);
+            deleteFile(writeFileAbsPath); // 기존 파일 삭제
             Files.write(Paths.get(writeFileAbsPath), content.getBytes(characterSet), StandardOpenOption.CREATE);
         } catch (UnsupportedEncodingException e) {
         } catch (IOException e) {
