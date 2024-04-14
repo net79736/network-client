@@ -36,17 +36,19 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="org.springframework" level="OFF"/>
-    <!--logback 패키지는 WARN 레벨 이상만 출력하겠다.-->
-    <logger name="org.httptest.networkclient.config" level="DEBUG"/>
-    <!--org.httptest.networkclient 하위 패키지는 INFO 레벨 이상만 출력하겠다.-->
-<!--    <logger name="org.httptest.networkclient.*" level="INFO"/>-->
-
-    <!-- 모든 패키지의 로그 중 INFO 레벨 이상만 출력하겠다면 root 레벨을 INFO로 변경한다. -->
-    <!-- 아래는 모든 패키지의 로그를 꺼버리고 뒤에서 overwrite한 logger 에서만 로그를 출력한다.  -->
+    <!-- 모든 패키지의 로그 중 ERROR 레벨 이상만 출력하겠다면 root 레벨을 ERROR 로 변경한다. -->
+    <!-- 초기에 모든 패키지에 로그를 ERROR 로그 이상인 경우에만 찍게하고 그 이후 별도로 설정하고 싶은 package 는 별도 사용자가 설정 -->
+    <!-- 근데 이 파일이 맨 위에 있으나 아래 있으나 똑같은 걸로 보임. 이해를 위해 맨 위에 배치 -->
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
+
+    <logger name="org.springframework" level="OFF"/>
+    <!--logback config 패키지는 INFO 레벨 이상만 출력하겠다.-->
+    <logger name="org.httptest.networkclient.config" level="INFO"/>
+    <logger name="org.httptest.networkclient.test" level="WARN"/>
+    <!--org.httptest.networkclient 하위 패키지는 ERROR 레벨 이상만 출력하겠다.-->
+    <logger name="org.httptest.networkclient" level="ERROR"/>
 
 </configuration>
