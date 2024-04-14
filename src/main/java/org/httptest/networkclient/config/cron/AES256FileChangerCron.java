@@ -34,7 +34,7 @@ public class AES256FileChangerCron {
      *  "0 15 10 ? * 6L 2002-2005" : 2002년부터 2005년까지 매월 마지막 금요일 아무 날이나 10:15:00
      *  "0 15 10 ? * 6#3" : 매월 3번째 금요일 아무 날이나 10:15:00
      */
-    @Scheduled(cron = "0 0-59 * * * ?")
+    @Scheduled(cron = "0 0-2 14 * * ?")
     public void fileChangeCron() {
         log.info("fileChangeCron START");
         String newAESIv = aes256Utils.generateRandomStringWithByteLength(16);
