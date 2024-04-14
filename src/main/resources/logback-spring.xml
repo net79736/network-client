@@ -12,9 +12,9 @@
 
     <!-- Appenders (현재 설정은 콘솔에 출력이 되는 설정이다.)-->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <!--DEBUG이상의 레벨을 출력을 하겠다.-->
+        <!--DEBUG 이상의 레벨을 출력을 하겠다.-->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
+            <level>DEBUG</level>
         </filter>
         <!--실행 해 보면서 로그가 어떻게 출력이 되는지 확인해 보자.-->
         <encoder>
@@ -38,9 +38,9 @@
 
     <logger name="org.springframework" level="OFF"/>
     <!--logback 패키지는 WARN 레벨 이상만 출력하겠다.-->
-    <logger name="com.httptest.networkclient" level="INFO"/>
-    <!--logback.configurationi 패키지는 WARN 레벨 이상만 출력하겠다.-->
-    <!--<logger name="com.logbackGroup.logback.configuration" level="DEBUG"/>-->
+    <logger name="org.httptest.networkclient.config" level="DEBUG"/>
+    <!--org.httptest.networkclient 하위 패키지는 INFO 레벨 이상만 출력하겠다.-->
+<!--    <logger name="org.httptest.networkclient.*" level="INFO"/>-->
 
     <!-- 모든 패키지의 로그 중 INFO 레벨 이상만 출력하겠다면 root 레벨을 INFO로 변경한다. -->
     <!-- 아래는 모든 패키지의 로그를 꺼버리고 뒤에서 overwrite한 logger 에서만 로그를 출력한다.  -->
