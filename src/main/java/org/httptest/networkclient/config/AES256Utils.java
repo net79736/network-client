@@ -1,6 +1,7 @@
 package org.httptest.networkclient.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.Cipher;
@@ -103,5 +104,17 @@ public class AES256Utils {
 
     public String getAESIv() throws Exception {
         return FileUtility.readFile(SYSTEM_HOME_PATH + "/aes256/AESIv", "utf8"); //16byte;
+    }
+
+    /**
+     * 특정 비트 사이즈의 랜덤한 문자열을 생성한다.
+     *
+     * @param byteLength 생성할 문자열 비트 수
+     * @return
+     */
+    public String generateRandomStringWithByteLength(int byteLength) {
+        boolean useLetters = true;
+        boolean useNumbers = true;
+        return RandomStringUtils.random(byteLength, useLetters, useNumbers);
     }
 }
