@@ -30,6 +30,7 @@ import java.net.URLEncoder;
  * Path
  * Domain 과 비슷한 원리로 "특정 경로에만 쿠키를 포함시키고 싶을 경우" 해당 속성을 이용합니다.
  * "Path 정보가 누락된 경우에는 요청 URI의 경로 정보를 기본값으로 설정"합니다.
+ * Path 를 "/" 로 설정한 경우 모든 path 에서 출력 가능함 (확인)
  *
  * Secure
  * Secure connection 에서만 쿠키를 포함시키고 싶은 경우 Secure을 설정하게 됩니다.
